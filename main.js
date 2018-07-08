@@ -1,15 +1,23 @@
-new Vue({
-    el: '#app',
-    data: {
-        title: 'Hello World!',
-        link: 'http://google.com'
+const messages = {
+    en: {
+        message: {
+            hello: 'hello world'
+        }
     },
-    methods: {
-        changeTitle: function(event) {
-            this.title = event.target.value;
-        },
-        sayHello: function () {
-            return this.title;
+    ja: {
+        message: {
+            hello: 'こんにちは、世界'
         }
     }
-});
+}
+
+// Create VueI18n instance with options
+const i18n = new VueI18n({
+    locale: 'ja', // set locale
+    fallbackLocale: 'en', // set fallback locale
+    messages, // set locale messages
+})
+
+
+// Create a Vue instance with `i18n` option
+new Vue({ i18n }).$mount('#app')
