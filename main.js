@@ -1,23 +1,14 @@
-const messages = {
-    en: {
-        message: {
-            hello: 'hello world'
-        }
+new Vue({
+    el: '#app',
+    data: {
+        title: 'Hello world',
+        link: 'http://google.com',
+        finishedLink: '<a href="http://google.com">Google</a>'
     },
-    ja: {
-        message: {
-            hello: 'こんにちは、世界'
+    methods: {
+        sayHello: function() {
+            this.title = 'Hello!';
+            return this.title;
         }
     }
-}
-
-// Create VueI18n instance with options
-const i18n = new VueI18n({
-    locale: 'ja', // set locale
-    fallbackLocale: 'en', // set fallback locale
-    messages, // set locale messages
 })
-
-
-// Create a Vue instance with `i18n` option
-new Vue({ i18n }).$mount('#app')

@@ -3,36 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Learning Vue JS</title>
+    <title>Vue JS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
     <div id="app">
-        <p>{{ $t("message.hello" )}}</p>
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }} - <a v-bind:href="link">Googel</a></p>
+        <p v-html="finishedLink"></p>
     </div>
-    <button v-on:click="switchLocale()">{{ otherLocale }}</button>
-    <template>
-        <div class="locale-changer">
-            <select v-model="$i18n.locale">
-                <option v-for="lang in langs" :value="lang">{{ lang }}</option>
-            </select>
-        </div>
-    </template>
-
-
-    <script src="vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-loader@15.2.4/lib/index.min.js?test"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@kazupon/vue-i18n-loader@0.3.0/lib/index.min.js"></script>
-    <script src="vue-i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
-    <script>
-        export default {
-            name: 'locale-changer',
-            data() {
-                return { langs: ['ja', 'en'] }
-            }
-        }
-    </script>
 </body>
 </html>
