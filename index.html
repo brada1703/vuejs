@@ -9,10 +9,9 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="increase">click me</button>
+        <button v-on:click="increase(2)">click me</button>
         <p>{{counter}}</p>
-        <p>Coordinates: {{ x }} / {{}}</p>
-
+        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} </p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
